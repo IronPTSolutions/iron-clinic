@@ -1,0 +1,26 @@
+<div class="mb-3 d-flex">
+    <a class="btn btn-primary" href="/patients/new">Nuevo Patient</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Sesiones</th>
+            <th>Profesional</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each patients as |patient|}}
+            <tr>
+                <td>
+                    <a href="/patients/{{ patient._id }}">
+                        {{ patient.name }}
+                    </a>
+                </td>
+                <td>??</td>
+                <td>{{ patient.user.name }}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

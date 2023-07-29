@@ -15,6 +15,13 @@ const schema = new mongoose.Schema(
   }
 );
 
+schema.virtual("comments", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "patient",
+  justOne: false,
+});
+
 const Patient = mongoose.model("Patient", schema);
 
 module.exports = Patient;

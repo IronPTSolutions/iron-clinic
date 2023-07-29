@@ -1,0 +1,73 @@
+<div class="mb-3 d-flex">
+    <a class="btn btn-primary me-2" href="/patients">Volver</a>
+    <a class="btn btn-primary me-2" href="/patients/{{patient.id}}/edit">Editar</a>
+
+    <form method="POST" action="/patients/{{patient.id}}/delete">
+        <button type="submit" class="btn btn-danger" href="">Eliminar</button>
+    </form>
+</div>
+
+<div>
+    <div class="mb-3">
+      <label class="fw-bold">Nombre</label>
+      <div>{{patient.name}}</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Dirección</label>
+      <div>
+        {{patient.address}}
+        <a target="_blank" href="https://maps.google.com?q={{patient.address}}" class="ms-3 btn btn-sm btn-secondary">Maps</a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Teléfono</label>
+      <div>
+        {{patient.phoneNumber}}
+        <a target="_blank" href="https://wa.me/{{patient.phoneNumber}}" class="ms-3 btn btn-sm btn-success">Whatsapp</a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Email</label>
+      <div>
+        {{patient.email}}
+        <a href="mailto:{{patient.email}}" class="ms-3 btn btn-sm btn-secondary">Escribir</a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Cumpleaños</label>
+      <div>{{patient.birth}}</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Profesional asignado</label>
+      <div>{{patient.user.name}}</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Descripción</label>
+      <div>{{patient.description}}</div>
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <h6>Comentarios</h6>
+
+    <div class="mb-3 d-flex">
+        <a class="btn btn-primary" href="??">Añadir comentario</a>
+    </div>  
+
+    {{#each patient.comments as |comment|}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{comment.createdAt}} por {{comment.author.name}}</h6>
+                <p class="card-text">{{comment.text}}</p>
+            </div>
+        </div>
+    {{/each}}
+</div>
