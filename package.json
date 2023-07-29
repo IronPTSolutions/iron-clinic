@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -e hbs,js,css app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "seeds": "node bin/seeds.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "nodemon": "^3.0.1"
   }
 }

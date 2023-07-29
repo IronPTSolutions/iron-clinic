@@ -4,7 +4,7 @@ const schema = new mongoose.Schema(
   {
     text: { type: String },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    workSession: { type: mongoose.Schema.Types.ObjectId, ref: "WorkSession" },
+    patient: { type: mongoose.Schema.Types.ObjectId, ref: "Patient" },
   },
   {
     timestamps: true,
