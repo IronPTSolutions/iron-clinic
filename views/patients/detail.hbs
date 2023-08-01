@@ -39,7 +39,12 @@
 
     <div class="mb-3">
       <label class="fw-bold">Cumpleaños</label>
-      <div>{{patient.birth}}</div>
+      <div>{{prettyDate patient.birth}}</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold">Fecha de alta en el sistema</label>
+      <div>{{prettyDate patient.createdAt}}</div>
     </div>
 
     <div class="mb-3">

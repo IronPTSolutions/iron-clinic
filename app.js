@@ -1,10 +1,10 @@
 const express = require("express");
 const morgan = require("morgan");
-const hbs = require("hbs");
 const app = express();
 
-/** Connect to database **/
+/** Apply configs **/
 require("./config/db.config");
+require("./config/hbs.config");
 
 /** logger */
 app.use(morgan("dev"));
@@ -12,7 +12,6 @@ app.use(morgan("dev"));
 /** Configure view engine **/
 app.set("view engine", "hbs");
 app.set("views", `${__dirname}/views`);
-hbs.registerPartials(__dirname + "/views/partials");
 
 /** Support req.body **/
 app.use(express.urlencoded({ extended: true }));

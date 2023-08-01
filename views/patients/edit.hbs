@@ -1,0 +1,37 @@
+<div class="mb-3 d-flex border-bottom pb-3">
+    <a class="btn btn-primary me-2" href="/patients/{{patient.id}}">Volver</a>
+</div>
+
+<form method="POST" action="/patients/{{patient.id}}">
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input name="name" type="text" class="form-control" placeholder="Nombre del paciente" value="{{patient.name}}"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Dirección</label>
+    <input name="address" type="text" class="form-control" placeholder="Dirección del paciente" value="{{patient.address}}"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Teléfono</label>
+    <input name="phoneNumber" type="text" class="form-control" placeholder="Nº de teléfono" value="{{patient.phoneNumber}}"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input name="email" type="email" class="form-control" placeholder="Email del paciente" value="{{patient.email}}"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Fecha de nacimiento</label>
+    <input name="birth" type="date" class="form-control" value="{{inputDateFormat patient.birth}}"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Descripción / Notas</label>
+    <textarea name="description" class="form-control" rows="5">{{patient.description}}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Editar</button>
+</form>
