@@ -29,7 +29,8 @@ module.exports.doLogin = (req, res, next) => {
     if (user) {
       bcrypt.compare(req.body.password, user.password).then((match) => {
         if (match) {
-          res.redirect("/patients"); // TODO: create session
+          req.session.userId = user.id;
+          res.redirect("/patients");
         } else {
           res.redirect("/login"); // TODO: show error
         }
@@ -38,4 +39,9 @@ module.exports.doLogin = (req, res, next) => {
       res.redirect("/login"); // TODO: show error
     }
   });
+};
+
+module.exports.logout = (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
 };

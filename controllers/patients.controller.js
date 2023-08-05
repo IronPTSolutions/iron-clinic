@@ -1,11 +1,8 @@
-const User = require("../models/user.model");
-const Patient = require("../models/patient.model");
 const Comment = require("../models/comment.model");
+const Patient = require("../models/patient.model");
 
 module.exports.list = (req, res, next) => {
-  // TODO: list patients that current user can access
-
-  Patient.find()
+  Patient.find(req.user.admin ? {} : { user: req.user.id })
     .sort({ createdAt: -1 })
     .populate("user")
     .then((patients) => {
@@ -37,6 +34,7 @@ module.exports.doCreate = (req, res, next) => {
     description: req.body.description,
     birth: req.body.birth,
     email: req.body.email,
+    user: req.user.id,
   })
     .then(() => {
       res.redirect("/patients");

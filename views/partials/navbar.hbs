@@ -1,5 +1,12 @@
 <nav class="navbar bg-body-tertiary">
-  <div class="container">
+  <div class="container d-flex justify-space-between">
     <a class="navbar-brand" href="#">Iron Clinic</a>
+
+    {{#if currentUser}}
+      <form method="POST" action="/logout">
+        {{currentUser.email}}
+        <button type="submit" class="btn btn-danger">Log out</button>
+      </form>
+    {{/if}}
   </div>
 </nav>
