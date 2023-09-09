@@ -2,7 +2,7 @@
     <a class="btn btn-primary me-2" href="/patients">Volver</a>
 </div>
 
-<form method="POST" action="/patients">
+<form method="POST" action="/patients" enctype="multipart/form-data">
   <div class="mb-3">
     <label class="form-label">Nombre</label>
     <input name="name" type="text" class="form-control" placeholder="Nombre del paciente"/>
@@ -11,6 +11,11 @@
   <div class="mb-3">
     <label class="form-label">Dirección</label>
     <input name="address" type="text" class="form-control" placeholder="Dirección del paciente"/>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Imagen</label>
+    <input name="patata" type="file" class="form-control" />
   </div>
 
   <div class="mb-3">

@@ -35,6 +35,7 @@ module.exports.doCreate = (req, res, next) => {
     birth: req.body.birth,
     email: req.body.email,
     user: req.user.id,
+    image: req.file.path, // multer middleware is filling this field
   })
     .then(() => {
       res.redirect("/patients");

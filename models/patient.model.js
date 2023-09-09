@@ -9,6 +9,7 @@ const schema = new mongoose.Schema(
     birth: { type: Date },
     email: { type: String },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    image: { type: String },
   },
   {
     timestamps: true,
